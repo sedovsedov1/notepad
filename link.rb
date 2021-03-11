@@ -1,9 +1,12 @@
 
 class Link < Post
 
-	def initialize 						# инициализировать ссылку
-		super 									# вызвать inizialize родительского класса
-		@url = '' 							# еще одно поле @url (пока) пустая строка
+  # инициализировать ссылку
+	def initialize
+		# вызвать inizialize родительского класса
+		super
+		# еще одно поле @url (пока) пустая строка
+		@url = ''
 	end
 
 	def read_from_console

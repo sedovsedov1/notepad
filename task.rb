@@ -2,17 +2,26 @@ require 'date'
 
 class Task < Post
 
-	def initialize 						# инициализировать ссылку
-		super 									# вызвать inizialize родительского класса
-		@die_data = Time.now 		# еще одно поле @die_data (пока) текущее время
+	# инициализировать ссылку
+	def initialize
+		# вызвать inizialize родительского класса
+		super
+		# еще одно поле @die_data (пока) текущее время
+		@die_data = Time.now
 	end
 
-	def read_from_console 												# метод "считать задачу с консоли"
-		puts "Что надо будет сделать?" 							# 1) выводим подсказку
-		@text = STDIN.gets.chomp 										# 2) @text = текст 
-		puts "До какого числа надо это сделать?" 		# 3) выводим подсказку 
-		input = STDIN.gets.chomp 										# 4) input = дата (строкой) 
-		@die_data = Date.parse(input) 							# 5) @die_data = конвертируем в формата data
+	# метод "считать задачу с консоли"
+	def read_from_console	
+	# 1) выводим подсказку						
+		puts "Что надо будет сделать?"
+		# 2) @text = текст					
+		@text = STDIN.gets.chomp
+		# 3) выводим подсказку									 
+		puts "До какого числа надо это сделать?"
+		# 4) input = дата (строкой) 
+		input = STDIN.gets.chomp
+		# 5) @die_data = конвертируем в формата data 
+		@die_data = Date.parse(input)
 	end
 
 	def to_strings

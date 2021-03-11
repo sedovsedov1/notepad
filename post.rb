@@ -1,20 +1,28 @@
 
 class Post
 
-  def self.post_types                         # метод "вернуть все типы записей" 
-    [Memo,Task,Link]                          # возвращает массив вариантов
+  # метод "вернуть все типы записей"
+  def self.post_types
+  # возвращает массив вариантов                  
+    [Memo,Task,Link]
   end
 
-	def self.create(type_index)                 # метод "создать запись"
-		post_types[type_index].new                # вызывает метод "вернуть все записи" от выбранного индекса и вызвать для него new
+  # метод "создать запись"
+	def self.create(type_index)
+    # вызывает метод "вернуть все записи" от выбранного индекса и вызвать для него new
+		post_types[type_index].new
 	end
 
-	def initialize 															# инициализировать пост
-		@created_at = Time.now 										# 1) текущее время
-		@text = [] 															  # 2) (пока) пустая строка
+  # инициализировать пост
+	def initialize
+    # 1) текущее время
+		@created_at = Time.now
+    # 2) (пока) пустой массив
+		@text = []
 	end
 
-	def read_from_console												# прочитать данные с консоли
+  # прочитать данные с консоли
+	def read_from_console
 		# пустой
 	end
 
@@ -28,9 +36,8 @@ class Post
     file.close
   end
 
-
-	def file_path 															# метод получения текущего каталога
-		current_path = File.dirname(__FILE__) 		# каталог читается из окружения
+	def file_path                               # метод получения текущего каталога
+		current_path = File.dirname(__FILE__)     # каталог читается из окружения
 		# имя файла генерится из текущего времени в определенном формате + имя класса-ребенка
 		file_name = @created_at.strftime("#{ self.class.name }_%Y-%m-%d_%H-%M-%S.txt")
 		current_path + "/" + file_name
