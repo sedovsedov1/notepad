@@ -1,7 +1,7 @@
 
 class Link < Post
 
-  # инициализировать ссылку
+  	# инициализировать ссылку
 	def initialize
 		# вызвать inizialize родительского класса
 		super
